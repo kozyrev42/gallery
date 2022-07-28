@@ -1,0 +1,2 @@
+CREATE DATABASE `gallery`
+    DEFAULT CHARACTER SET = 'utf8mb4';
