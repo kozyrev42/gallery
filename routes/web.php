@@ -22,3 +22,15 @@ Route::get('/about', function () {
 Route::get('/home', function () {
     return view('home');
 });
+
+Route::get('/create', function () {
+    return view('create');
+});
+
+Route::get('/show', function () {
+    return view('show');
+});
+
+Route::get('/edit', function () {
+    return view('edit');
+});
