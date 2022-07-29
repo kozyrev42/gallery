@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,4 +34,13 @@ Route::get('/show', function () {
 
 Route::get('/edit', function () {
     return view('edit');
+});
+
+Route::post('/store', function (Request $request) {
+    /* dd($request->all()); */
+    /* dd($request->file('image')); */
+    $image = $request->file('image');
+    dd(get_class_methods($image));  /* просмотр всех методов Экземпляра */
+
+    /* return view('edit'); */
 });
