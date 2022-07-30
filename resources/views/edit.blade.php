@@ -5,13 +5,15 @@
     <div class="container">
         <div class="row">
             <div class="col-md-5">
-                <h3>Редактировать</h3>
-                <img src="/image.jpg" alt="" class="img-thumbnail">
-                <form action="" method="POST">
+                <h3>Заменить картинку</h3>
+                <img src="/{{$imagesInView->image}}" alt="" class="img-thumbnail">
+
+                <form action="/update/{{$imagesInView->id}}" method="POST" enctype="multipart/form-data">
+                    {{ csrf_field() }}
                     <div class="form-control">
-                        <input type="file">
+                        <input type="file" name="image">
                     </div>
-                    <button type="submit" class="btn btn-warning">Edit</button>
+                    <button type="submit" class="btn btn-warning">Заменить</button>
                 </form>
             </div>
         </div>

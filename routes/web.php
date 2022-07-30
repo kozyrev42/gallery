@@ -1,6 +1,4 @@
 <?php
-
-use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,35 +10,18 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ImagesController@index');
 
-Route::get('/about', function () {
-    return view('about');
-});
+Route::get('/about', 'ImagesController@about');
 
-Route::get('/home', function () {
-    return view('home');
-});
+Route::get('/create', 'ImagesController@create');
 
-Route::get('/create', function () {
-    return view('create');
-});
+Route::get('/show/{id}', 'ImagesController@show');
 
-Route::get('/show', function () {
-    return view('show');
-});
+Route::get('/edit/{id}', 'ImagesController@edit');
 
-Route::get('/edit', function () {
-    return view('edit');
-});
+Route::post('/update/{id}', 'ImagesController@update');
 
-Route::post('/store', function (Request $request) {
-    /* dd($request->all()); */
-    /* dd($request->file('image')); */
-    $image = $request->file('image');
-    dd(get_class_methods($image));  /* просмотр всех методов Экземпляра */
+Route::post('/store', 'ImagesController@store');
 
-    /* return view('edit'); */
-});
+Route::get('/delete/{id}', 'ImagesController@delete');

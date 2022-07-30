@@ -5,16 +5,17 @@
 <div class="container">
     <h1 align="center">Моя Галерея</h1>
     <div class="row">
-       
-        <div class="col-md-3 gallery-items">
-            <div>
-                <img src="/image.jpg" class="img-thumbnail" alt="">
+        @foreach ($imagesInView as $image)
+            <div class="col-md-3 gallery-items">
+                <div>
+                    <img src="/{{$image->image}}" class="img-thumbnail" alt="">
+                </div>
+                <a href="/show/{{$image->id}}" class="btn btn-info my-button">Просмотр</a>
+                <a href="/edit/{{$image->id}}" class="btn btn-warning my-button">Редактировать</a>
+                <a href="/delete/{{$image->id}}" class="btn btn-danger my-button">Удалить</a>
             </div>
-            <a href="/show" class="btn btn-info my-button">Просмотр</a>
-            <a href="/edit" class="btn btn-warning my-button">Редактировать</a>
-            <a href="#" class="btn btn-danger my-button">Удалить</a>
-        </div>
-        
+        @endforeach
+
     </div>
 </div>
 
