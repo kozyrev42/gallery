@@ -12,7 +12,7 @@
 
 Route::get('/', 'ImagesController@index');
 
-Route::get('/about', 'ImagesController@about');
+Route::get('/about', 'HomeController@about');
 
 Route::get('/create', 'ImagesController@create');
 
