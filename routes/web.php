@@ -25,3 +25,7 @@ Route::post('/update/{id}', 'ImagesController@update');
 Route::post('/store', 'ImagesController@store');
 
 Route::get('/delete/{id}', 'ImagesController@delete');
+
+Route::get('/test/{id?}', 'ImagesController@testRequest'); // для теста Request
+
+Route::post('/testpost', 'ImagesController@testPost'); // для валидации данных из формы

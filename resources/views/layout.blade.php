@@ -31,6 +31,6 @@
           </div>
         </div>
       </nav>
-    @yield('content')   {{-- сюда вставим секцию 'content' --}}
+    @yield('content')   {{-- сюда будет вставлятся/подгружаться секция 'content' --}}
 </body>
 </html>

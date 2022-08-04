@@ -68,4 +68,37 @@ class ImagesController extends Controller
     public function create(){
         return view('create');
     }
+
+    // пробная функция для получения данных через класс Request
+    public function testRequest(Request $request){
+        // запрос: http://localhost/test?id=5
+
+        //  получаем все параметры из запроса
+        //dd($request->all());    // "id" => "5"
+
+        // получаем значение конкретного поля из запроса
+        //dd($request->id);    // 5
+        
+        //dd($request->get('id')); // тоже самое что и "$request->id"
+
+        // only([ 'id', 'name']) - получить только определённые поля из запроса.
+        // except([ 'id', 'name']) - получить из запроса все поля кроме id и name.
+        // has('id') - проверяет есть ли поле id в запросе. Возвращает true или false.
+        
+    }
+
+    public function testPost(Request $request)
+    {
+        //dd($request->all());
+
+        //dd($request->title); // 123
+        
+        // правило валидации, если не пройдено, возвращает на страницу
+        $this->validate($request, [
+            'title' => 'required',      // обязательно к заполнению
+            'title2' => 'required'     // обязательно к заполнению
+        ]);     
+        // если валидация не пройдена, код прекращает выполняться в это скрипте
+
+    }
 }
