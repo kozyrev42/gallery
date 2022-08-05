@@ -12,7 +12,9 @@
 
 Route::get('/', 'ImagesController@index');
 
-Route::get('/about', 'HomeController@about');
+Route::middleware(['admin'])->group(function(){
+    Route::get('/about', 'HomeController@about');
+});
 
 Route::get('/create', 'ImagesController@create');
 
