@@ -23,4 +23,18 @@
         </div>
         <button type="submit" class="btn btn-success">Submit</button>
     </form>
+
+
+
+    {{-- получаем данные из контроллера --}}
+    @foreach ($postsInAbout as $post)
+        <div>
+            <h3>{{$post->title}}</h3>   {{-- выводим данные из поля "title" --}}
+            <p>
+                {{$post->text}}         {{-- выводим данные из поля "text" --}}   
+            </p>
+            <hr>
+        </div>
+    @endforeach
+    {{ $postsInAbout->links() }}        {{-- вывод ссылок на слудующие страницы пришедших элементов --}}
 @endsection

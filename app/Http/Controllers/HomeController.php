@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;                       // для рабоды с БД
+use App\NameModelForFactory;
 
 class HomeController extends Controller
 {
@@ -81,6 +83,37 @@ class HomeController extends Controller
             return $user['status'] == 'ban';
         });
 
-        dd($sexMban);
+        //dd($sexMban);
+
+        //функция возвращает все записи из таблице в виде Объекта
+        //dd(Post::all());    // каждый элемент массива, это экземпляр Класса Post
+        
+
+        //dd(Post::first());  // возвращает только первый элемент в виде Объекта
+
+
+        //dd(Post::find(4));  // возвращает элемент по указанному в аргументе id
+
+
+        //dd(Post::where('id', 5)->first());  // возвращает элемент по указанному id
+
+        // передаём переменной результат вызова из БД
+        // $posts = Post::all();        // вывод всех элементов
+        //$posts = Post::paginate(2);     //  пагинация, вывод столько записей, сколько указано в (аргументе)
+        //return view('about', ['postsInAbout' => $posts]);
+
+
+        // запись в БД данных, 1 способ
+        // $posts = Post::create([
+        //     'title'=>'моя тема',
+        //     'text'=>'текст длинный'
+        // ]);
+
+        // запись в БД данных, 2 способ
+        // $post = new Post; // создаём экземпляр Модели
+        // $post->title = 'тема тема тема';
+        // $post->text = 'текст текст текст текст';
+        // $post->save();
+
     }
 }
